@@ -2,28 +2,32 @@ import Vue from '../node_modules/vue/dist/vue.js'
 // import App from './App.vue'
 import VueRouter from 'vue-router'
 
-// 1. Use plugin.
-// This installs <router-view> and <router-link>,
-// and injects $router and $route to all router-enabled child components
 Vue.use(VueRouter)
 
+const Home = { template: '<div>home</div>' }
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
 
-const NotFound = { template: '<p>Page not found</p>' }
-const Home = { template: '<p>home page</p>' }
-const About = { template: '<p>about page</p>' }
-const routes = {
-  '/': Home,
-  '/about': About
-}
-new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      return routes[this.currentRoute] || NotFound
-    }
-  },
-  render (h) { return h(this.ViewComponent) }
+const router = new VueRouter({
+  mode: 'history',
+  base: '/',
+  routes: [
+    { path: '/', component: Home },
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+  ]
 })
+new Vue({
+  router,
+  template: `
+    <div id="app">
+      <h1>Basic</h1>
+      <ul>
+        <li><router-link to="/">/</router-link></li>
+        <li><router-link to="/foo">/foo</router-link></li>
+        <li><router-link to="/bar">/bar</router-link></li>
+      </ul>
+      <router-view class="view"></router-view>
+    </div>
+  `
+}).$mount('#app')
