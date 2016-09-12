@@ -1,4 +1,4 @@
-import Vue from '../node_modules/vue/dist/vue.js'
+import Vue from 'vue'
 // import App from './App.vue'
 import VueRouter from 'vue-router'
 
@@ -17,17 +17,21 @@ const router = new VueRouter({
     { path: '/bar', component: Bar }
   ]
 })
+
+import Menu from './Menu.vue';
+
 new Vue({
   router,
   template: `
     <div id="app">
       <h1>Basic</h1>
-      <ul>
-        <li><router-link to="/">/</router-link></li>
-        <li><router-link to="/foo">/foo</router-link></li>
-        <li><router-link to="/bar">/bar</router-link></li>
-      </ul>
-      <router-view class="view"></router-view>
+      <Menu></Menu>
+      <transition name="fade">
+        <router-view class="view"></router-view>
+      </transition>
     </div>
-  `
+  `,
+  components:{
+    Menu
+  }
 }).$mount('#app')
