@@ -18,20 +18,24 @@ const router = new VueRouter({
   ]
 })
 
-import Menu from './Menu.vue';
 
 new Vue({
   router,
   template: `
-    <div id="app">
-      <h1>Basic</h1>
-      <Menu></Menu>
-      <transition name="fade">
-        <router-view class="view"></router-view>
-      </transition>
+    <div id="app"> 
+      <div id="menu">
+        <ul>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/foo">Foo</router-link></li>
+          <li><router-link to="/bar">Bar</router-link></li>
+        </ul>
+      </div>
+      <div id="page">
+        <h1>Basic</h1>
+        <transition name="slide-effect">
+          <router-view class="view"></router-view>
+        </transition>
+      </div>
     </div>
-  `,
-  components:{
-    Menu
-  }
+  `
 }).$mount('#app')

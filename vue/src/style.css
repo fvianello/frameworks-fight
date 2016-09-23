@@ -1,0 +1,49 @@
+.slide-effect-enter-active, .slide-effect-leave-active {
+  transition: all 1s;
+}
+.slide-effect-enter, .slide-effect-leave-active {
+  opacity: 0;
+}
+.slide-effect-enter {
+  transform: translateX(31px);
+}
+.slide-effect-leave-active {
+  transform: translateX(-31px);
+}
+
+body{
+  margin: 0;
+  font-family: Helvetica, Arial;
+}
+
+#menu{
+  padding: 0;
+}
+
+#menu ul{
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  padding: 0 25px;
+  text-align: center;
+  width: 100%;
+  background: #30f5a5;
+}
+
+#menu li{
+  display: inline-block;
+  padding: 15px 25px;
+}
+
+#menu li a{
+  color: #444;
+  text-decoration: none;
+}
+
+#menu li:hover{
+  background: #20d585;
+}
+
+#page{
+  padding-top: 50px;
+}
