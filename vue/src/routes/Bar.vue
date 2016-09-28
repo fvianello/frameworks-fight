@@ -1,5 +1,5 @@
 <template>
-	<div class="section section--foo">
+	<div class="section section--bar">
 		<ul class="list">
 			<li>Title Bar 1</li>
 			<li>Title Bar 2</li>

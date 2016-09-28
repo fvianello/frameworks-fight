@@ -67,6 +67,10 @@ body{
   background: #60d7a9;
 }
 
+.section--bar{
+  background: #fd6a62;
+}
+
 .list li{
   font-size: 24px;
   padding: 10px 0;
