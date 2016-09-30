@@ -25,11 +25,12 @@ body{
 
 #menu li{
   display: inline-block;
-  padding: 15px 25px;
 }
 
 #menu li a{
   color: #444;
+  padding: 15px 25px;
+  display: block;
   text-decoration: none;
 }
 

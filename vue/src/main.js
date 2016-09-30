@@ -66,14 +66,15 @@ new Vue({
     },
     leave: function (el, done) {
       var delay = 0;
-      [].forEach.call(el.getElementsByTagName('li'),(el) => {
+
+      var nodeList = [].slice.call(el.getElementsByTagName('li'), 0);
+
+      [].forEach.call(nodeList.reverse(),(el) => {
         setTimeout(() => {
           el.classList.add("hide");
         },delay);
         delay += 100;
       });
-
-      // delay += 500;
 
       setTimeout(() => {
         el.classList.add("slide-effect-leave-end");
